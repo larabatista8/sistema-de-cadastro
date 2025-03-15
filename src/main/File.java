@@ -1,5 +1,8 @@
 package main;
 import java.util.Scanner;
+import java.io.*;
+
+
 
 public class File {
 	
@@ -16,9 +19,16 @@ public class File {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int option;
-		
+		Scanner scan = new Scanner(System.in);
 		showMenu();
+	/*	try {
+		option = scan.nextInt();
+		}
+		catch(){}
 		
-	}
+		
+		switch(option) {
+		
+	}*/
 
-}
+}}
