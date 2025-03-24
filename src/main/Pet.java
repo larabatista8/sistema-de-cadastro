@@ -5,17 +5,26 @@ public class Pet {
 	private String type;
 	private String sexo;
 	private String adress;
+	private int houseNumber;
+	private String street;
+	private String neighborhood;
+	private String city;
 	private int age;
 	private float weight;
 	private String raca;
 	private int code;
 	
-	public Pet(String name, String type, String sexo, String adress, int age, float weight, String raca, int code) {
+	
+
+	public Pet() {
 		super();
 		this.name = name;
 		this.type = type;
 		this.sexo = sexo;
 		this.adress = adress;
+		this.houseNumber = houseNumber;
+		this.street = street;
+		this.neighborhood = neighborhood;
 		this.age = age;
 		this.weight = weight;
 		this.raca = raca;
@@ -84,6 +93,39 @@ public class Pet {
 
 	public void setCode(int code) {
 		this.code = code;
+	}
+
+	
+	public int getHouseNumber() {
+		return houseNumber;
+	}
+
+	public void setHouseNumber(int houseNumber) {
+		this.houseNumber = houseNumber;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getNeighborhood() {
+		return neighborhood;
+	}
+
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	@Override

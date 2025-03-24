@@ -44,6 +44,30 @@ public class File {
 		
 	}
 
+	public static void getNewPet() {
+		// setting a new pet object
+		Pet newPet= new Pet();
+		
+		String filePath = "C:\\Users\\laris\\Documents\\sistema-de-cadastro\\src\\main\\formulario.txt";
+		// showing questions to user
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String linha;
+		            while ((linha = br.readLine()) != null) {
+		            	
+		                System.out.println(linha);
+		            }
+        } 
+        catch (IOException e) {
+        		e.printStackTrace();
+        				}
+        
+        
+    }
+			
+		
+		
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int option;
@@ -70,9 +94,22 @@ public class File {
 			}
 			
 		System.out.println("valor escolhido: " + option);	
-		//switch(option) {
 		
-	//}
+		switch(option) {
+		case 1: 
+			getNewPet();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+	}
 
 }
 	}
