@@ -55,7 +55,9 @@ public class File {
 		            while ((linha = br.readLine()) != null) {
 		            	
 		                System.out.println(linha);
+		                newPet.setName();
 		            }
+		            System.out.println("nome inserido "+ newPet.getName());
         } 
         catch (IOException e) {
         		e.printStackTrace();

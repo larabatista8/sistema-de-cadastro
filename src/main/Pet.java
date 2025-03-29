@@ -1,4 +1,5 @@
 package main;
+import java.util.Scanner;
 
 public class Pet {
 	private String name;
@@ -35,8 +36,26 @@ public class Pet {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName() {
+		Scanner scan = new Scanner(System.in); 
+		
+		try {
+			String name = scan.nextLine();
+			//checking if there are only letters and space in the name
+			if( name != null && name.matches("^\\p{L}+(\\s+\\p{L}+)+$")) {
+				
+			this.name = name;
+				}
+			else {
+				System.out.println("Insira um nome válido,com sobrenome e sem números e caractéres especiais");
+				setName();
+			}
+		}
+		catch(Exception e){
+			System.out.println("Insira um nome válido,com sobrenome e sem números e caractéres especiais");
+			setName();
+			
+		}
 	}
 
 	public String getType() {
