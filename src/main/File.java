@@ -52,10 +52,55 @@ public class File {
 		// showing questions to user
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String linha;
-		            while ((linha = br.readLine()) != null) {
+            int i =1;
+		            while ((linha = br.readLine()) != null && i<=8) {
 		            	
-		                System.out.println(linha);
-		                newPet.setName();
+		            	switch(i) {
+		            	case 1:
+		            		System.out.println(linha);
+			                newPet.setName();
+			                i++;
+		            		break;
+		            	case 2:
+		            		System.out.println(linha);
+		            		
+		            		i++;
+		            		break;
+		            	case 3:
+		            		System.out.println(linha);
+		            		
+		            		i++;
+		            		break;
+		            	case 4:
+		            		System.out.println(linha);
+		            		
+		            		i++;
+		            		break;
+		            	case 5:
+		            		System.out.println(linha);
+		            		
+		            		i++;
+		            		break;
+		            	case 6:
+		            		System.out.println(linha);
+		            		newPet.setWeight();
+		            		i++;
+		            		break;
+		            	case 7:
+		            		System.out.println(linha);
+		            		
+		            		i++;
+		            		break;
+		            	case 8:
+		            		System.out.println(linha);
+		            		
+		            		i++;
+		            		break;
+		            	
+		            	}
+		            	i=1;
+		            	
+		                
 		            }
 		            System.out.println("nome inserido "+ newPet.getName());
         } 

@@ -10,7 +10,7 @@ public class Pet {
 	private String street;
 	private String neighborhood;
 	private String city;
-	private int age;
+	private float age;
 	private float weight;
 	private String raca;
 	private int code;
@@ -82,20 +82,59 @@ public class Pet {
 		this.adress = adress;
 	}
 
-	public int getAge() {
+	public float getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+	public void setAge() {
+		Scanner scan = new Scanner(System.in);
+		try {
+				float age = scan.nextFloat();
+				if(age < 0 || age > 20) {
+					System.out.println("Idade inválida. Digite novamente");
+					setAge();
+					
+					}
+				else {
+					this.age = age;
+					}
+				}
+		catch(Exception e) {
+			System.out.println("Idade inválida. Digite novamente");
+			setAge();
+			}
+		}
+		
+	
 
 	public float getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight() {
+		Scanner scan = new Scanner(System.in); 
+		try {
+					float weight = scan.nextFloat();
+					
+					if(weight >= 0.5 ||  weight <=60.0) {
+						this.weight = weight;
+						
+									}
+					else {
+						System.out.println("Insira um peso válido");
+						setWeight();
+					}
+		}
+		
+		catch(Exception e) {
+			System.out.println("Insira um peso válido");
+			setWeight();
+		}
+		
+		
+		
+		
+		
 	}
 
 	public String getRaca() {
