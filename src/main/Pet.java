@@ -1,10 +1,13 @@
 package main;
 import java.util.Scanner;
 
+// https://medium.com/@AlexanderObregon/beginners-quick-guide-to-java-enums-b39f5d30a731 
+// https://www.w3schools.com/java/java_enums.asp#gsc.tab=0
+
+// inserir funçao pra ler sexo e tipo
+
 public class Pet {
 	private String name;
-	private String type;
-	private String sexo;
 	private String adress;
 	private int houseNumber;
 	private String street;
@@ -15,17 +18,26 @@ public class Pet {
 	private String raca;
 	private int code;
 	
+	private enum sexo {
+		FEMEA,
+		MACHO;
+	}
+	
+	private enum type{
+		GATO, 
+		CACHORRO;
+	}
+
 	
 
 	public Pet() {
 		super();
 		this.name = name;
-		this.type = type;
-		this.sexo = sexo;
 		this.adress = adress;
 		this.houseNumber = houseNumber;
 		this.street = street;
 		this.neighborhood = neighborhood;
+		this.city = city;
 		this.age = age;
 		this.weight = weight;
 		this.raca = raca;
@@ -58,21 +70,7 @@ public class Pet {
 		}
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
+	
 
 	public String getAdress() {
 		return adress;
@@ -184,6 +182,18 @@ public class Pet {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAge(float age) {
+		this.age = age;
+	}
+
+	public void setWeight(float weight) {
+		this.weight = weight;
 	}
 
 	@Override
