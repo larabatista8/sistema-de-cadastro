@@ -4,8 +4,12 @@
  */
 package com.mycompany.Telas;
 
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 public class TelaLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
@@ -16,6 +20,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         configurarJanela();
+        configuraLabel();
     }
 
     /**
@@ -45,11 +50,41 @@ public class TelaLogin extends javax.swing.JFrame {
     private void configurarJanela() {
         // Configurações extras da janela
         setTitle("Login - Sistema de Adoção");
-        setSize(420, 420);
+        setSize(800, 500);
         setResizable(true); // previne mudança de tamanho da tela
         setLocationRelativeTo(null); // centraliza a tela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().setBackground(new Color (44,107,100));
+        getContentPane().setBackground(new Color (189, 206, 211));
+        //pack();
+    }
+    
+    private void configuraLabel(){
+        getContentPane().setLayout(null);
+        JLabel labelEmail = new JLabel();
+        labelEmail.setText("Email:"); // texto da label
+        labelEmail.setBounds(50, 50, 100, 25); // x, y, width, height
+        labelEmail.setForeground(Color.BLACK); // define cor do texto
+        labelEmail.setFont(new Font ("INTER", Font.PLAIN,20));
+        // Cria campo de texto
+        JTextField campoEmail = new JTextField();
+        campoEmail.setBounds(50, 80, 400, 25);
+        // Adiciona componentes
+        getContentPane().add(labelEmail);
+        getContentPane().add(campoEmail);
+
+        // cria label e campo de texto para senha
+        JLabel labelSenha = new JLabel("Senha:");
+        labelSenha.setBounds(50, 120, 100, 25);
+        labelSenha.setForeground(Color.BLACK);
+        labelSenha.setFont(new Font ("INTER", Font.PLAIN,20));
+        JTextField campoSenha = new JTextField();
+        campoSenha.setBounds(50, 140, 400, 25);
+        getContentPane().add(labelSenha);
+        getContentPane().add(campoSenha);
+        // Atualiza a tela
+        revalidate();
+        repaint();
+
     }
     /**
      * @param args the command line arguments

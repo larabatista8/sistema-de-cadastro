@@ -12,3 +12,92 @@ _______________________________________________________
 - Deletar um pet cadastrado
 - Listar todos os pets cadastrados
 - Listar pets por algum critério (idade, nome, raça)
+
+
+
+
+private void configuraLabel(){
+        getContentPane().setLayout(null);
+        JLabel labelEmail = new JLabel();
+        labelEmail.setText("Email:"); // texto da label
+         labelEmail.setBounds(50, 50, 100, 25); // x, y, width, height
+        labelEmail.setForeground(Color.BLACK); // define cor do texto
+        // Cria campo de texto
+        JTextField campoEmail = new JTextField();
+        campoEmail.setBounds(50, 80, 400, 25);
+        // Adiciona componentes
+        getContentPane().add(labelEmail);
+        getContentPane().add(campoEmail);
+
+        // cria label e campo de texto para senha
+        JLabel labelSenha = new JLabel("Senha:");
+        labelSenha.setBounds(50, 120, 100, 25);
+        labelSenha.setForeground(Color.BLACK);
+        JTextField campoSenha = new JTextField();
+        campoSenha.setBounds(50, 140, 400, 25);
+        getContentPane().add(labelSenha);
+        getContentPane().add(campoSenha);
+        // Atualiza a tela
+        revalidate();
+        repaint();
+
+    }
+
+
+
+
+
+
+    private void configuraLabel() {
+    // Usa GridBagLayout para melhor controle
+    getContentPane().setLayout(new java.awt.GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
+    
+    // Configurações comuns
+    gbc.insets = new java.awt.Insets(5, 5, 5, 5); // Margens
+    gbc.anchor = GridBagConstraints.WEST;
+    
+    // Email Label
+    gbc.gridx = 0;
+    gbc.gridy = 0;
+    JLabel labelEmail = new JLabel("Email:");
+    labelEmail.setForeground(Color.BLACK);
+    getContentPane().add(labelEmail, gbc);
+    
+    // Email Field
+    gbc.gridx = 1;
+    gbc.gridy = 0;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.weightx = 1.0;
+    JTextField campoEmail = new JTextField(15);
+    getContentPane().add(campoEmail, gbc);
+    
+    // Senha Label
+    gbc.gridx = 0;
+    gbc.gridy = 1;
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.weightx = 0;
+    JLabel labelSenha = new JLabel("Senha:");
+    labelSenha.setForeground(Color.BLACK);
+    getContentPane().add(labelSenha, gbc);
+    
+    // Senha Field
+    gbc.gridx = 1;
+    gbc.gridy = 1;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.weightx = 1.0;
+    JPasswordField campoSenha = new JPasswordField(15); // Use JPasswordField para senha
+    getContentPane().add(campoSenha, gbc);
+    
+    // Botão Login (centralizado)
+    gbc.gridx = 0;
+    gbc.gridy = 2;
+    gbc.gridwidth = 2; // Ocupa duas colunas
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.CENTER;
+    JButton btnLogin = new JButton("Login");
+    getContentPane().add(btnLogin, gbc);
+    
+    revalidate();
+    repaint();
+}
