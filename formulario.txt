@@ -6,3 +6,9 @@
 6 - Qual o peso aproximado do pet? (em kilos)
 7 - Qual a raça do pet?
 8 - Qual o código de cadastro?
+_______________________________________________________
+- Cadastrar um novo pet
+- Buscar dados do pet cadastrado
+- Deletar um pet cadastrado
+- Listar todos os pets cadastrados
+- Listar pets por algum critério (idade, nome, raça)
