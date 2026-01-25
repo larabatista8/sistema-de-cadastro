@@ -7,9 +7,15 @@ package com.mycompany.Telas;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.white;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 public class TelaLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
@@ -38,11 +44,11 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -58,8 +64,42 @@ public class TelaLogin extends javax.swing.JFrame {
         //pack();
     }
     
+    
     private void configuraLabel(){
+        // cria paineis
         getContentPane().setLayout(null);
+        setLayout(new BorderLayout());
+        JPanel norte = new JPanel();
+        norte.setPreferredSize(new Dimension(100,100));
+        norte.setBackground(new Color (189, 206, 211));
+         
+        JPanel centro = new JPanel();
+        centro.setBackground(new Color (189, 206, 211));
+        centro.setPreferredSize(new Dimension(100,100));
+        centro.setLayout(null);// permite usar setBounds
+        
+        JPanel sul = new JPanel();
+        sul.setPreferredSize(new Dimension(100,100));
+        sul.setBackground(new Color (189, 206, 211));
+        
+        JPanel leste = new JPanel();
+        leste.setPreferredSize(new Dimension(150,150));
+        leste.setBackground(new Color (189, 206, 211));
+        
+        JPanel oeste= new JPanel();
+        oeste.setPreferredSize(new Dimension(150,150));
+        oeste.setBackground(new Color (189, 206, 211));
+      
+       
+       getContentPane().add(norte,BorderLayout.NORTH);
+       getContentPane().add(centro,BorderLayout.CENTER);
+       getContentPane().add(sul,BorderLayout.SOUTH);
+       getContentPane().add(leste,BorderLayout.EAST);
+       getContentPane().add(oeste,BorderLayout.WEST);
+       
+       
+       //CRIA LABEL E TEXTFIELD
+       //getContentPane().setLayout(null);
         JLabel labelEmail = new JLabel();
         labelEmail.setText("Email:"); // texto da label
         labelEmail.setBounds(50, 50, 100, 25); // x, y, width, height
@@ -69,23 +109,34 @@ public class TelaLogin extends javax.swing.JFrame {
         JTextField campoEmail = new JTextField();
         campoEmail.setBounds(50, 80, 400, 25);
         // Adiciona componentes
-        getContentPane().add(labelEmail);
-        getContentPane().add(campoEmail);
+        centro.add(labelEmail);
+        centro.add(campoEmail);
 
         // cria label e campo de texto para senha
         JLabel labelSenha = new JLabel("Senha:");
         labelSenha.setBounds(50, 120, 100, 25);
         labelSenha.setForeground(Color.BLACK);
         labelSenha.setFont(new Font ("INTER", Font.PLAIN,20));
-        JTextField campoSenha = new JTextField();
+        JPasswordField campoSenha = new JPasswordField();
         campoSenha.setBounds(50, 140, 400, 25);
-        getContentPane().add(labelSenha);
-        getContentPane().add(campoSenha);
+        centro.add(labelSenha);
+        centro.add(campoSenha);
+        
+        // configura botao de login 
+        JButton btnLogin = new JButton("Login");
+        btnLogin.setBounds(380, 180, 90, 50);
+        btnLogin.setVisible(true);
+        btnLogin.setFont(new Font ("INTER", Font.BOLD,15));
+        centro.add(btnLogin);
+        
+       
+        
         // Atualiza a tela
         revalidate();
         repaint();
 
     }
+    
     /**
      * @param args the command line arguments
      */
