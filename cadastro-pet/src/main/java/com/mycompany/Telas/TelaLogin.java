@@ -7,8 +7,6 @@ package com.mycompany.Telas;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import java.awt.Color;
-import static java.awt.Color.black;
-import static java.awt.Color.white;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JLabel;
