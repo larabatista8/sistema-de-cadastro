@@ -6,5 +6,7 @@ com\mycompany\Telas\TelaCadastroPet$1.class
 com\mycompany\Telas\TelaCadastroPet.class
 com\mycompany\Telas\TelaLogin.class
 com\mycompany\cadastro\pet\CadastroPet.class
+com\mycompany\dal\ConexaoBD.class
 com\mycompany\Telas\TelaCadastroPet$2.class
+com\mycompany\Telas\TelaCadastroPet$4.class
 com\mycompany\Telas\TelaPrincipal.class

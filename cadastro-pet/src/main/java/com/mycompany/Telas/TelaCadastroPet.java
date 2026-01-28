@@ -4,6 +4,8 @@
  */
 package com.mycompany.Telas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author laris
@@ -241,9 +243,113 @@ public class TelaCadastroPet extends javax.swing.JInternalFrame {
     private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesoActionPerformed
+    private void validaInput(){
+    // verifica se todos campos foram preesnchidos
+        // verifica se o nome contem apenas letras do alfabeto
+        String nome = txtNome.getText().trim();
+        if (txtNome.getText().trim().isEmpty() || (!nome.matches("^\\p{L}+(\\s+\\p{L}+)*$"))) {
+            JOptionPane.showMessageDialog(this, "Por favor, Insira um nome válido,"
+                    + "apenas com letras e sem números e caractéres especiais");
+            txtNome.requestFocus();
+            return;
+        }
+        // verifica se o sobrenome contem apenas letras do alfabeto
+        String sobrenome = txtSobrenome.getText().trim();
+        if (txtSobrenome.getText().trim().isEmpty() || (!sobrenome.matches("^\\p{L}+(\\s+\\p{L}+)*$")) ) {
+            JOptionPane.showMessageDialog(this, "Por favor, Insira um sobrenome válido,"
+                    + "apenas com letras e sem números e caractéres especiais");
+            txtSobrenome.requestFocus();
+            return;
+        }
+        // validação do tipo de pet
+        String tipoSelecionado = (String) cbbTipo.getSelectedItem();
+        if (tipoSelecionado == null || tipoSelecionado.trim().isEmpty() || tipoSelecionado.equals(" ")) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione o tipo.");
+            cbbTipo.requestFocus();
+            return;
+        }
+        // validação do sexo do pet
+        String sexoSelecionado = (String) cbbSexo.getSelectedItem();
+        if (sexoSelecionado == null || sexoSelecionado.trim().isEmpty() || sexoSelecionado.equals(" ")) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione o sexo.");
+            cbbSexo.requestFocus();
+            return;
+        }
+        
+        // validando idade
+        if (txtIdade.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha a idade do pet.");
+            txtIdade.requestFocus();
+            return;
+        } 
+        try {
+            String idadeString = txtIdade.getText().trim();
+            idadeString = idadeString.replace(",", ".");
+            float idade = Float.parseFloat(idadeString);
+            if(idade<0.0 || idade > 20.0){
+                JOptionPane.showMessageDialog(this, "Valor inválido! A idade deve ser um numero entre 0 e 20 anos");
+                txtIdade.setText("");
+                txtIdade.requestFocus();
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Valor inválido! A idade deve ser um numero entre 0 e 20 anos");
+                txtIdade.setText("");
+                txtIdade.requestFocus();
+        }
+        
+        // validando peso
+        if (txtPeso.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha o peso do pet.");
+            txtPeso.requestFocus();
+            return;
+        }
+        try {
+            String pesoString = txtPeso.getText().trim();
+            pesoString = pesoString.replace(",", ".");
 
+            float peso = Float.parseFloat(pesoString);
+            if(peso<0.5 || peso > 60.0){
+                JOptionPane.showMessageDialog(this, "Valor inválido! O peso deve ser um valor entre 0.5 e 60.0 kilos");
+                txtPeso.setText("");
+                txtPeso.requestFocus();
+            }
+        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Valor inválido! O peso deve ser um valor entre 0.5 e 60.0 kilos");
+            txtPeso.setText("");
+            txtPeso.requestFocus();
+        }
+           
+        if (txtRaca.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha a raça do pet.");
+            txtRaca.requestFocus();
+            return;
+        }
+
+        if (txtCidade.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha a cidade que o pet foi resgatado.");
+            txtCidade.requestFocus();
+            return;
+        }
+        if (txtBairro.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha o bairro que o pet foi resgatado.");
+            txtBairro.requestFocus();
+            return;
+        }
+        if (txtRua.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha a rua que o pet foi resgatado.");
+            txtRua.requestFocus();
+            return;
+        }
+        if (txtNumero.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha o numero da residencia em que o pet foi resgatado.");
+            txtNumero.requestFocus();
+            return;
+        }
+    }
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        validaInput();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
