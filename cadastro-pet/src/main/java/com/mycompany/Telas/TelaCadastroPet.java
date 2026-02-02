@@ -4,19 +4,26 @@
  */
 package com.mycompany.Telas;
 
+import com.mycompany.dal.ConexaoBD;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author laris
  */
 public class TelaCadastroPet extends javax.swing.JInternalFrame {
-
+    private Connection conexao = null;
     /**
      * Creates new form TelaCadastroPet
      */
     public TelaCadastroPet() {
         initComponents();
+        conexao = ConexaoBD.conector();
     }
 
     /**
@@ -348,8 +355,42 @@ public class TelaCadastroPet extends javax.swing.JInternalFrame {
             return;
         }
     }
+    
+    private void verificaDuplicidade(){
+        // variaveis com nome e sobrenome
+        String nome = txtNome.getText().trim();
+        String sobrenome = txtSobrenome.getText().trim();
+        // verifica se ja existe um pet com nome e sobrenome iguais
+        String sqlVerifica = "SELECT COUNT(*) FROM pet WHERE LOWER(nome) = LOWER(?) AND LOWER(sobrenome) = LOWER(?)";
+        try {
+            PreparedStatement pstVerifica = conexao.prepareStatement(sqlVerifica);
+            pstVerifica.setString(1, nome);
+            pstVerifica.setString(2, sobrenome);
+            ResultSet rs = pstVerifica.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                JOptionPane.showMessageDialog(this, 
+                    "Esta combinação de nome e sobrenome já está em uso. Por favor, escolha outra.",
+                    "Nome e sobrenomes duplicados", JOptionPane.WARNING_MESSAGE);
+                rs.close();
+                pstVerifica.close();
+                return;
+            }
+            rs.close();
+            pstVerifica.close();
+        }
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao verificar nome e sobrenome: " + e.getMessage());
+            return;
+            
+        }
+    }
+    private void salvaDados(){
+        
+    }
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         validaInput();
+        verificaDuplicidade();
+        salvaDados();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
